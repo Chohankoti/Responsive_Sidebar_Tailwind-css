@@ -6,24 +6,21 @@ import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import About from './components/About';
 import Contack from './components/Contack';
-import DemoSideBar from './components/DemoSideBar';
+import SkeletonWorking from './SkeletonWorking';
 
 function App() {
   return (
-
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Skeleton />} />
-        <Route path='/demosidebar' element={<DemoSideBar />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/contact" element={<Contack />} />
+        <Route path="/" element={<SkeletonWorking />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contack />} />
+        </Route>
+        <Route path='/o' element={<Skeleton />} />
       </Routes>
     </BrowserRouter>
-
-
-
   );
 }
 
