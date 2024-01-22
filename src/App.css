@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.flex {
+  display: flex;
+}
+
+.content {
+  flex-grow: 1; /* The content area takes the remaining space */
+  padding: 20px; /* Add padding as needed */
+  overflow: auto; /* Enable scrolling if content overflows */
+}
