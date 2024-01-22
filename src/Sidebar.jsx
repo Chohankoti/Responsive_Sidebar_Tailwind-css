@@ -14,13 +14,13 @@ function Sidebar({ onSidebarClick }) {
                                 <div className="h-full flex-col justify-between px-4 flex">
                                     <div className="space-y-4">
                                         <div className="bg-top bg-cover space-y-1">
-                                            <Link
+                                            <a href="#" 
                                                 to="/dashboard"
                                                 className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex transition-all duration-200 hover:bg-gray-200 group cursor-pointer"
                                             >
                                                 <AiOutlineDashboard className="flex-shrink-0 w-5 h-5 mr-4" />
                                                 <span>Dashboard</span>
-                                            </Link>
+                                            </a>
                                             <a href="#" className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer">
                                                 <AiOutlineInfoCircle className="flex-shrink-0 w-5 h-5 mr-4" />
