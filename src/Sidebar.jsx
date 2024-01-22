@@ -77,7 +77,7 @@ function Sidebar() {
                                     <div className="mt-12 pb-4">
                                         <div className="bg-top bg-cover space-y-1">
                                             <p className="px-4 font-semibold text-xs tracking-widest text-gray-400 uppercase">Others</p>
-                                            <a href="#" className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
+                                            <a href="Logout" className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer">
                                                 <AiOutlineLogout className="mr-4" width="24" height="24" />
                                                 <span>Logout</span>
