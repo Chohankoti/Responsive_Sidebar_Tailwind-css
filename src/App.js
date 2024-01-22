@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
@@ -8,11 +9,16 @@ import About from './components/About';
 import Contack from './components/Contack';
 
 function App() {
+  const [activeRoute, setActiveRoute] = useState('/dashboard');
+  const handleSidebarClick = (route) => {
+    setActiveRoute(route);
+  };
+
   return (
     <Router>
       <div className="flex">
         <Navbar />
-        <Sidebar />
+        <Sidebar onSidebarClick={handleSidebarClick} />
 
         <div className="content">
           <Switch>

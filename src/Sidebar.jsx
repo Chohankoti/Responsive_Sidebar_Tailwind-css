@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineDashboard, AiOutlineInfoCircle, AiOutlineFolder, AiOutlineAlert, AiOutlineRead, AiOutlineForm, AiOutlineTeam, AiOutlineUser, AiOutlineLogout } from 'react-icons/ai';
 
-function Sidebar() {
+function Sidebar({ onSidebarClick }) {
     return (
         <div>
             <div className="pt-0 pr-0 pb-0 pl-0 mt-0 mr-0 mb-0"></div>
@@ -16,11 +16,14 @@ function Sidebar() {
                                 <div className="h-full flex-col justify-between px-4 flex">
                                     <div className="space-y-4">
                                         <div className="bg-top bg-cover space-y-1">
-                                            <a href="#" className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
-                    transition-all duration-200 hover:bg-gray-200 group cursor-pointer">
+                                            <Link
+                                                to="/dashboard"
+                                                onClick={() => onSidebarClick('/dashboard')}
+                                                className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex transition-all duration-200 hover:bg-gray-200 group cursor-pointer"
+                                            >
                                                 <AiOutlineDashboard className="flex-shrink-0 w-5 h-5 mr-4" />
                                                 <span>Dashboard</span>
-                                            </a>
+                                            </Link>
                                             <a href="#" className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                     transition-all duration-200 hover:bg-gray-200 group cursor-pointer">
                                                 <AiOutlineInfoCircle className="flex-shrink-0 w-5 h-5 mr-4" />
