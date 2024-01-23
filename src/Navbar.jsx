@@ -58,7 +58,7 @@ function Navbar() {
                   <div className="justify-center items-center flex relative">
                     <img src="https://static01.nyt.com/images/2019/11/08/world/08quebec/08quebec-superJumbo.jpg"
                       className="object-cover btn- h-9 w-9 rounded-full mr-2 bg-gray-300" alt="" />
-                    <p className="font-semibold text-sm">Marrie Currie</p>
+                    <p className="font-semibold text-sm">KOTI CHOHAN</p>
                   </div>
                 </div>
               </div>

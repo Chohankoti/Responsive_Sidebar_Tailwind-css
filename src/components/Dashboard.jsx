@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <div>
       <Tabs >
-        <Tab label="Tab 1">
+        <Tab label="Website">
           <div className="py-4">
             <h2 className="text-lg font-medium mb-2">Tab 1 Content</h2>
             <p className="text-gray-700">
@@ -21,7 +21,7 @@ const Dashboard = () => {
             </p>
           </div>
         </Tab>
-        <Tab label="Tab 2">
+        <Tab label="Mobile">
           <div className="py-4">
             <h2 className="text-lg font-medium mb-2">Tab 2 Content</h2>
             <p className="text-gray-700">
