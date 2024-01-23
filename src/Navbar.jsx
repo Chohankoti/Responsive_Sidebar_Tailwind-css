@@ -1,3 +1,5 @@
+import photo from './utilities/sai pallavi.jpg';
+import { Link } from 'react-router-dom';
 function Navbar() {
     return (
   
@@ -37,6 +39,7 @@ function Navbar() {
                       </span>
                     </p>
                   </div>
+                  <Link to='/home'>
                   <div className="relative">
                     <p className="pt-1 pr-1 pb-1 pl-1 bg-white text-gray-700 rounded-full transition-all duration-200
                   hover:text-gray-900 focus:outline-none hover:bg-gray-100">
@@ -55,8 +58,10 @@ function Navbar() {
                     <p className="px-1.5 py-0.5 font-semibold text-xs items-center bg-indigo-600 text-white rounded-full inline-flex
                   absolute -top-px -right-1">2</p>
                   </div>
+                  </Link>
+                  
                   <div className="justify-center items-center flex relative">
-                    <img src="https://static01.nyt.com/images/2019/11/08/world/08quebec/08quebec-superJumbo.jpg"
+                    <img src={photo}
                       className="object-cover btn- h-9 w-9 rounded-full mr-2 bg-gray-300" alt="" />
                     <p className="font-semibold text-sm">KOTI CHOHAN</p>
                   </div>
