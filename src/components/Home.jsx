@@ -6,7 +6,7 @@ const Home = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/connection');
+        const response = await fetch('http://127.0.0.1:8000/api/ccode/');
         if (!response.ok) {
           throw new Error('Failed to fetch users');
         }
@@ -26,7 +26,7 @@ const Home = () => {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            {user.firstname} {user.lastname} - Age: {user.age}
+            {user.ccode} - owner: {user.owner}
           </li>
         ))}
       </ul>

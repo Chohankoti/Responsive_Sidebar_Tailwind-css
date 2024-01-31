@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import {
-    Drawer,
     List,
     ListItem,
 } from '@mui/material';
@@ -44,8 +43,6 @@ const DemoSideBar = () => {
                                                         <span>{link.icon}</span>
                                                         <span>{link.text}</span>
                                                     </div>
-
-
                                                 </SidebarItem>
                                             ))}
                                         </List>
@@ -62,7 +59,6 @@ const DemoSideBar = () => {
                                                 <SidebarItem className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                                             transition-all duration-200 hover:bg-gray-200 group cursor-pointer"
                                                     key={index}
-                                                    button
                                                     component={Link}
                                                     to={link.to}
                                                     style={{ textAlign: link.alignRight ? 'right' : 'left' }}
@@ -85,7 +81,6 @@ const DemoSideBar = () => {
                                                 <SidebarItem className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                                             transition-all duration-200 hover:bg-gray-200 group cursor-pointer"
                                                     key={index}
-                                                    button
                                                     component={Link}
                                                     to={link.to}
                                                     style={{ textAlign: link.alignRight ? 'right' : 'left' }}
@@ -113,7 +108,6 @@ const DemoSideBar = () => {
                                                 <SidebarItem className="font-medium text-sm items-center rounded-lg text-gray-900 px-4 py-2.5 flex
                                             transition-all duration-200 hover:bg-gray-200 group cursor-pointer"
                                                     key={index}
-                                                    button
                                                     component={Link}
                                                     to={link.to}
                                                     style={{ textAlign: link.alignRight ? 'right' : 'left' }}
