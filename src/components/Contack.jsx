@@ -6,7 +6,7 @@ export default function Contact() {
 
   const handleFileUpload = (e) => {
     const reader = new FileReader();
-    reader.readAsArrayBuffer(e.target.files[0]); // Change to readAsArrayBuffer
+    reader.readAsArrayBuffer(e.target.files[0]);
     reader.onload = (e) => {
       const arrayBuffer = e.target.result;
       const data = new Uint8Array(arrayBuffer);
@@ -34,8 +34,14 @@ export default function Contact() {
           <tbody>
             {data.map((row, index) => (
               <tr key={index}>
-                {Object.values(row).map((value, index) => (
-                  <td key={index}>{value}</td>
+                {Object.keys(row).map((key) => (
+                  <td key={key}>
+                    {key === 'hotel_image' ? (
+                      <img src={row[key]} alt='Excel Image' style={{ maxWidth: '100px', maxHeight: '100px' }} />
+                    ) : (
+                      row[key]
+                    )}
+                  </td>
                 ))}
               </tr>
             ))}
