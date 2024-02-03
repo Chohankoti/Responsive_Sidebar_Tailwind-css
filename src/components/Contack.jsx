@@ -5,6 +5,7 @@ import { IoCloudUploadOutline } from 'react-icons/io5';
 export default function Contact() {
   const [data, setData] = useState([]);
   const [selectedFile, setSelectedFile] = useState("No file chosen");
+  const [filters, setFilters] = useState({});
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -25,6 +26,14 @@ export default function Contact() {
       };
     }
   };
+
+  const handleFilterChange = (key, value) => {
+    setFilters((prevFilters) => ({ ...prevFilters, [key]: value }));
+  };
+
+  const filteredData = data.filter((row) =>
+    Object.entries(filters).every(([key, value]) => row[key].toString().toLowerCase().includes(value.toLowerCase()))
+  );
 
   return (
     <div className="m-4 overflow-x-auto overflow-y-auto max-h-[90vh]">
@@ -54,40 +63,54 @@ export default function Contact() {
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               {data.length > 0 && (
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      {Object.keys(data[0]).map((key) => (
-                        <th
-                          key={key}
-                          scope="col"
-                          className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
-                          {key}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {data.map((row, index) => (
-                      <tr key={index}>
-                        {Object.keys(row).map((key) => (
-                          <td key={key} className="px-6 py-4 whitespace-nowrap">
-                            {key === 'hotel_image' ? (
-                              <div className="flex-shrink-0 h-10 w-10">
-                                <img className="h-10 w-10 rounded-full" src={row[key]} alt="" />
-                              </div>
-                            ) : (
-                              <div className="ml-4">
-                                <div className="text-sm font-medium text-gray-900">{row[key]}</div>
-                              </div>
-                            )}
-                          </td>
+                <>
+                  <div className="flex mb-4">
+                    {Object.keys(data[0]).map((key) => (
+                      <div key={key} className="mr-4">
+                        <label className="block text-sm font-medium text-gray-700">{key}</label>
+                        <input
+                          type="text"
+                          className="mt-1 p-1 border border-gray-300 rounded-md"
+                          onChange={(e) => handleFilterChange(key, e.target.value)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        {Object.keys(data[0]).map((key) => (
+                          <th
+                            key={key}
+                            scope="col"
+                            className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                          >
+                            {key}
+                          </th>
                         ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {filteredData.map((row, index) => (
+                        <tr key={index}>
+                          {Object.keys(row).map((key) => (
+                            <td key={key} className="px-6 py-4 whitespace-nowrap">
+                              {key === 'hotel_image' ? (
+                                <div className="flex-shrink-0 h-10 w-10">
+                                  <img className="h-10 w-10 rounded-full" src={row[key]} alt="" />
+                                </div>
+                              ) : (
+                                <div className="ml-4">
+                                  <div className="text-sm font-medium text-gray-900">{row[key]}</div>
+                                </div>
+                              )}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </>
               )}
             </div>
           </div>
