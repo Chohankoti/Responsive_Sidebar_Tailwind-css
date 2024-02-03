@@ -79,9 +79,11 @@ export default function Contact() {
                                   <img className="h-10 w-10 rounded-full" src={row[key]} alt="" />
                                 </div>
                               ) : (
+                               {key !== 'VERIFIED_STATUS' ? (
                                 <div className="ml-4">
-                                  <div className="text-sm font-medium text-gray-900">{row[key]}</div>
+                                <div className="text-sm font-medium text-gray-900">{row[key]}</div>
                                 </div>
+                              ):()}                               
                               )}
                             </div>
                           </td>
