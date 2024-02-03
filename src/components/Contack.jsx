@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="m-4">
+    <div className="m-4 overflow-x-auto overflow-y-auto max-h-[90vh]">
       <form className="m-3">
         <div className="flex flex-row items-center">
           <input
@@ -49,9 +49,9 @@ export default function Contact() {
         </div>
       </form>
 
-      <div className="flex flex-col overflow-x-auto">
+      <div className="flex flex-col">
         <div className="-my-2 sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8 ">
+          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               {data.length > 0 && (
                 <table className="min-w-full divide-y divide-gray-200">
