@@ -28,7 +28,7 @@ export default function Contact() {
 
   return (
     <div className="m-4">
-      <form className='m-3'>
+      <form className="m-3">
         <div className="flex flex-row items-center">
           <input
             type="file"
@@ -43,38 +43,58 @@ export default function Contact() {
               rounded-md border-0 text-sm font-semibold bg-pink-50
               text-pink-700 hover:bg-pink-100 cursor-pointer"
           >
-           <IoCloudUploadOutline className="w-6 h-6" />
+            <IoCloudUploadOutline className="w-6 h-6" />
           </label>
           <label className="text-sm text-slate-500">{selectedFile}</label>
         </div>
       </form>
-    
-      {data.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              {Object.keys(data[0]).map((key) => (
-                <th key={key}>{key}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, index) => (
-              <tr key={index}>
-                {Object.keys(row).map((key) => (
-                  <td key={key}>
-                    {key === 'hotel_image' ? (
-                      <img src={row[key]} alt='Excel Image' style={{ maxWidth: '100px', maxHeight: '100px' }} />
-                    ) : (
-                      row[key]
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+
+      <div className="flex flex-col">
+        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              {data.length > 0 && (
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      {Object.keys(data[0]).map((key) => (
+                        <th
+                          key={key}
+                          scope="col"
+                          className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        >
+                          {key}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {data.map((row, index) => (
+                      <tr key={index}>
+                        {Object.keys(row).map((key) => (
+                          <td key={key} className="px-6 py-4 whitespace-nowrap">
+                            <div className="flex items-center">
+                              {key === 'hotel_image' ? (
+                                <div className="flex-shrink-0 h-10 w-10">
+                                  <img className="h-10 w-10 rounded-full" src={row[key]} alt="" />
+                                </div>
+                              ) : (
+                                <div className="ml-4">
+                                  <div className="text-sm font-medium text-gray-900">{row[key]}</div>
+                                </div>
+                              )}
+                            </div>
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
